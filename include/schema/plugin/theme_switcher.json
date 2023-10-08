@@ -1,0 +1,7 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "/plugin/theme_switcher.json",
+    "description": "icarus dark theme support",
+    "type": "boolean",
+    "default": true
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "/comment/giscus.json",
+  "description": "Giscus comment plugin configurations",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "giscus"
+    },
+    "repo": {
+      "type": "string"
+    },
+    "repo_id": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "category_id": {
+      "type": "string"
+    }
+  },
+  "required": ["type", "repo", "repo_id", "category", "category_id"]
+}

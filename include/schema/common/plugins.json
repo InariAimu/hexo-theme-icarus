@@ -10,6 +10,9 @@
         "back_to_top": {
             "$ref": "/plugin/back_to_top.json"
         },
+        "theme_switcher": {
+            "$ref": "/plugin/theme_switcher.json"
+        },
         "baidu_analytics": {
             "$ref": "/plugin/baidu_analytics.json"
         },
