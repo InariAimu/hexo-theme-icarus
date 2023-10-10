@@ -3,6 +3,8 @@
 
 @import '../../include/style/const'
 
+$text-color-dark = #ccc
+
 /* patch for avatar */
 .image
     // overriding avatar parent style
@@ -34,17 +36,15 @@
 .card-content.article
     .content
         h1
-            color: #fff
-
+            color: $text-color-dark
         h2
-            color: #fff
-
+            color: $text-color-dark
         h3
-            color: #fff
+            color: $text-color-dark
         h4
-            color: #fff
+            color: $text-color-dark
         h5
-            color: #fff
+            color: $text-color-dark
         img
             border-radius: $card-radius
 
@@ -93,7 +93,7 @@ del:active
     a.navbar-item.is-active,
     .navbar-link.is-active
         background-color: $primary !important
-        color: #fff !important
+        color: $text-color-dark !important
         transition: linear 0.2s
 
 .navbar-end
@@ -123,12 +123,12 @@ del:active
     .searchbox-result-title,
     .searchbox-result-icon,
     .searchbox-close
-        color: #fff
+        color: $text-color-dark
 
 /* patch wrong color of cards */
 .card
     background-color: #3c3c3c
-    color: #ffffff
+    color: $text-color-dark
 
 /* patch wrong radius of tags*/
 .card.widget
@@ -186,10 +186,25 @@ del:active
 .breadcrumb a
     color: $primary
 
+// patch links
 .card-content.article
     .content
-        a
+        a[target='_blank']
             color: $primary
+            &:after
+                padding-left: 0.3rem
+                padding-right: 0.3rem
+                font-family: "Font Awesome 6 Free"
+                font-size: 12px
+                font-weight: 900
+                content: "\f08e"
+                color: $primary
+
+.card-content.article
+    .content
+        blockquote
+            background-color: #2b2b2b
+            border-left-color: shade(#2b2b2b, 80%)
 
 /* selection color */
 ::-moz-selection
@@ -213,7 +228,7 @@ body
     color: #fff
 
 .title
-    color: #fff
+    color: $text-color-dark
 
 strong
     color: #fff

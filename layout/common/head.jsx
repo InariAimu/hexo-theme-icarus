@@ -63,7 +63,8 @@ module.exports = class extends Component {
         } else if (article && article.highlight && article.highlight.theme) {
             hlTheme = article.highlight.theme;
         } else {
-            hlTheme = 'atom-one-light';
+            //hlTheme = 'atom-one-light';
+            hlTheme = null;
         }
 
         if (typeof page.og_image === 'string') {
@@ -115,7 +116,7 @@ module.exports = class extends Component {
             if (widget) {
                 followItVerificationCode = widget.verification_code;
             }
-        }
+        }        
 
         return <head>
             <meta charset="utf-8" />

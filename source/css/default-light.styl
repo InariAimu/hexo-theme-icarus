@@ -133,10 +133,24 @@ del:active
 .breadcrumb a
     color: $primary
 
+// patch links
 .card-content.article
     .content
-        a
+        a[target='_blank']
             color: $primary
+            &:after
+                padding-left: 0.3rem
+                padding-right: 0.3rem
+                font-family: "Font Awesome 6 Free"
+                font-size: 12px
+                font-weight: 900
+                content: "\f08e"
+                color: lighten($primary, 20%)
+        code
+            padding: 0
+            color: darken($primary, 20%)
+            background-color: tint($primary, 95%)
+            overflow-wrap: break-word
 
 /* selection color */
 ::-moz-selection

@@ -79,6 +79,7 @@ _download_themes()
   .then(val => { document.querySelector('#theme-switcher').innerHTML = thememode[val ? 'dark' : 'light']; return val; })
   .then(val => { _save_dark_theme(val); return val; });
 
+
 // mount onclick event for button
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -97,7 +98,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   else
     button.classList.remove('is-active');
   
-  icon.className = _get_dark_theme() ? 'fa-solid fa-moon' : 'fa-solid fa-lightbulb';
+  icon.className = _get_dark_theme() ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+
+  const hljs_css = document.getElementById('hljs-theme');
+  hljs_css.setAttribute('href', _get_dark_theme() ? hljs_css.getAttribute('dark') : hljs_css.getAttribute('light'));
 
   // handle event
   button.onclick = async() => {
@@ -120,8 +124,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       button.classList.remove('is-active');
 
     let icon = document.querySelector('.navbar-item[title="Dark Mode"] > i');
-    icon.className = is_darkmode ? 'fa-solid fa-moon' : 'fa-solid fa-lightbulb';
-
+    icon.className = is_darkmode ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+    
+    const hljs_css = document.getElementById('hljs-theme');
+    hljs_css.setAttribute('href', _get_dark_theme() ? hljs_css.getAttribute('dark') : hljs_css.getAttribute('light'));
   };
 
 });
