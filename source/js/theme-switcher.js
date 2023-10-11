@@ -24,6 +24,16 @@ function setCookie(name,value,days) {
   document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
+function changeGiscusTheme (theme) {
+    const iframe = document.querySelector('iframe.giscus-frame');
+    if (!iframe) return;
+    iframe.contentWindow.postMessage({ giscus: {
+        setConfig: {
+        theme: theme
+        }
+    } }, 'https://giscus.app');
+}
+
 const _get_browser_dark = () => {
   if(!window.matchMedia) return false;
   return window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -101,7 +111,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   icon.className = _get_dark_theme() ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
 
   const hljs_css = document.getElementById('hljs-theme');
-  hljs_css.setAttribute('href', _get_dark_theme() ? hljs_css.getAttribute('dark') : hljs_css.getAttribute('light'));
+  hljs_css.setAttribute('href', _is_dark ? hljs_css.getAttribute('dark') : hljs_css.getAttribute('light'));
+
+  changeGiscusTheme(_is_dark ? 'dark' : 'light')
 
   // handle event
   button.onclick = async() => {
@@ -125,9 +137,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let icon = document.querySelector('.navbar-item[title="Dark Mode"] > i');
     icon.className = is_darkmode ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-    
+
     const hljs_css = document.getElementById('hljs-theme');
-    hljs_css.setAttribute('href', _get_dark_theme() ? hljs_css.getAttribute('dark') : hljs_css.getAttribute('light'));
+    hljs_css.setAttribute('href', is_darkmode ? hljs_css.getAttribute('dark') : hljs_css.getAttribute('light'));
+
+    changeGiscusTheme(is_darkmode ? 'dark' : 'light')
   };
 
 });

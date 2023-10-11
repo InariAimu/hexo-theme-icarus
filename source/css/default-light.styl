@@ -133,24 +133,55 @@ del:active
 .breadcrumb a
     color: $primary
 
-// patch links
 .card-content.article
     .content
-        a[target='_blank']
-            color: $primary
-            &:after
-                padding-left: 0.3rem
-                padding-right: 0.3rem
-                font-family: "Font Awesome 6 Free"
-                font-size: 12px
-                font-weight: 900
-                content: "\f08e"
-                color: lighten($primary, 20%)
+        p,li
+            a[target='_blank'] // patch external links
+                color: $primary
+                &:after
+                    padding-left: 0.3rem
+                    padding-right: 0.3rem
+                    font-family: "Font Awesome 6 Free"
+                    font-size: 12px
+                    font-weight: 900
+                    content: "\f08e"
+                    color: lighten($primary, 20%)
+                &:hover
+                    text-decoration: underline;
+
+            a:not([target='_blank']):not(.gallery-item) // patch internal links
+                color: $primary
+                &:after
+                    padding-left: 0.3rem
+                    padding-right: 0.3rem
+                    font-family: "Font Awesome 6 Free"
+                    font-size: 12px
+                    font-weight: 400
+                    content: "\f15b"
+                    color: lighten($primary, 20%)
+                &:hover
+                    text-decoration: underline;
+
         code
             padding: 0
             color: darken($primary, 20%)
             background-color: tint($primary, 95%)
             overflow-wrap: break-word
+
+        h1,h2,h3,h4,h5
+            scroll-margin-top: 70px !important
+            &:hover
+                a
+                    color: $primary
+                    &::after
+                        content: "#"
+                        position: absolute
+                        left: 0.6rem
+
+.card-content.article
+    .content
+        h2
+            border-bottom: 1px solid lighten($primary, 80%)
 
 /* selection color */
 ::-moz-selection

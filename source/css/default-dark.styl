@@ -189,16 +189,46 @@ del:active
 // patch links
 .card-content.article
     .content
-        a[target='_blank']
-            color: $primary
-            &:after
-                padding-left: 0.3rem
-                padding-right: 0.3rem
-                font-family: "Font Awesome 6 Free"
-                font-size: 12px
-                font-weight: 900
-                content: "\f08e"
+        p,li
+            a[target='_blank']
                 color: $primary
+                &:after
+                    padding-left: 0.3rem
+                    padding-right: 0.3rem
+                    font-family: "Font Awesome 6 Free"
+                    font-size: 12px
+                    font-weight: 900
+                    content: "\f08e"
+                    color: $primary
+                &:hover
+                    text-decoration: underline;
+                    
+            a:not([target='_blank']):not(.gallery-item) // patch internal links
+                color: $primary
+                &:after
+                    padding-left: 0.3rem
+                    padding-right: 0.3rem
+                    font-family: "Font Awesome 6 Free"
+                    font-size: 12px
+                    font-weight: 400
+                    content: "\f15b"
+                &:hover
+                    text-decoration: underline;
+
+        h1,h2,h3,h4,h5
+            scroll-margin-top: 70px !important
+            &:hover
+                a
+                    color: $primary
+                    &::after
+                        content: "#"
+                        position: absolute
+                        left: 0.6rem
+
+.card-content.article
+    .content
+        h2
+            border-bottom: 1px solid mix($primary, #3c3c3c, 80%)
 
 .card-content.article
     .content
@@ -228,7 +258,7 @@ body
     color: #fff
 
 .title
-    color: $text-color-dark
+    color: #fff
 
 strong
     color: #fff
