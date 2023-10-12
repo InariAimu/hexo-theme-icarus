@@ -5,6 +5,7 @@ const Share = require('./share');
 const Donates = require('./donates');
 const Comment = require('./comment');
 const ArticleLicensing = require('hexo-component-inferno/lib/view/misc/article_licensing');
+const FriendLinks = require('./friendlinks');
 
 /**
  * Get the word count of text.
@@ -88,6 +89,8 @@ module.exports = class extends Component {
                     {page.title !== '' && !index ? <h1 class="title is-3 is-size-4-mobile">{page.title}</h1> : null}
                     {/* Content/Excerpt */}
                     <div class="content" dangerouslySetInnerHTML={{ __html: index && page.excerpt ? page.excerpt : page.content }}></div>
+                    {/* If this is a friend link page */}
+                    {config.friendlink ? <FriendLinks config={config} helper={helper}/>: null}
                     {/* Licensing block */}
                     {!index && article && article.licenses && Object.keys(article.licenses)
                         ? <ArticleLicensing.Cacheable page={page} config={config} helper={helper} /> : null}

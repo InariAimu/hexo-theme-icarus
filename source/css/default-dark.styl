@@ -211,7 +211,7 @@ del:active
                     font-family: "Font Awesome 6 Free"
                     font-size: 12px
                     font-weight: 400
-                    content: "\f15b"
+                    content: "\f02e"
                 &:hover
                     text-decoration: underline;
 
@@ -229,12 +229,92 @@ del:active
     .content
         h2
             border-bottom: 1px solid mix($primary, #3c3c3c, 80%)
+            padding-bottom: 2px
 
 .card-content.article
     .content
         blockquote
             background-color: #2b2b2b
             border-left-color: shade(#2b2b2b, 80%)
+
+.friend-list
+    list-style: none
+    padding: 0px
+    margin-left: 0px
+
+    ul
+        *
+            vertical-align: middle
+
+    li
+        height: 60px
+        margin-bottom: 16px        
+        
+        &:hover
+            .link-content
+                padding-left: 22px
+                outline: 1px solid mix($primary, #3c3c3c, 80%)
+                backdrop-filter: none
+                transition: all 0.2s linear
+
+            .link-cover
+                background-position-y: 50% !important
+                transition: all 0.2s ease-out
+
+    .ficon
+        width: 40px
+        border-radius: 6px
+        margin-right: 16px
+        height: unset
+        vertical-align: sub
+
+    .link-title
+        display: inline-block
+
+        span
+            display: block
+            font-size: 12px
+            color: #bfbfbf
+
+        a                    
+            max-width: 70%
+            text-overflow: ellipsis
+            overflow: hidden
+            white-space: nowrap       
+
+            color: $primary
+            &:after
+                padding-left: 0.3rem
+                padding-right: 0.3rem
+                font-family: "Font Awesome 6 Free"
+                font-size: 12px
+                font-weight: 900
+                content: "\f08e"
+                color: lighten($primary, 20%)
+            &:hover
+                text-decoration: underline;
+
+    .link-content
+        float: right
+        width: 100%
+        height: 100%
+        padding: 9px 8px 8px 12px
+        border-radius: 6px
+        margin-bottom: 16px
+        white-space: nowrap
+        background-image: linear-gradient(to right, #3c3c3cef,#3c3c3c5f)
+        backdrop-filter: blur(3px)
+        outline: 2px solid #3c3c3c
+        transition: all 0.2s linear
+
+    .link-cover
+        width: 100%
+        height: 100%
+        border-radius: 6px
+        background-size: 100% !important
+        background-repeat: no-repeat !important
+        background-position-y: 60% !important
+        transition: all 0.2s ease-out
 
 /* selection color */
 ::-moz-selection
