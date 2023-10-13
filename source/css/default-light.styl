@@ -36,7 +36,7 @@
 del
     border-radius: 6px
     transition: 0.1s linear
-    filter: blur(4px)
+    filter: blur(3px)
 
 del:hover,
 del:active
@@ -54,8 +54,8 @@ del:active
     top: 0;
     z-index: 1000;
     background-color: #ffffffc4
-    backdrop-filter: blur(20px)
     -webkit-backdrop-filter: blur(20px)
+    backdrop-filter: blur(20px)
 
 /* patch wrong color of navigation bar color */
 .navbar-logo:hover
@@ -86,8 +86,8 @@ del:active
 .cc-window
     color: $text !important
     background-color: #ffffff94 !important
-    backdrop-filter: blur(3px)
     -webkit-backdrop-filter: blur(3px)
+    backdrop-filter: blur(3px)
 
 /* patch search box z-index */
 .searchbox
@@ -201,6 +201,7 @@ del:active
             .link-content
                 padding-left: 22px
                 outline: 1px solid tint($primary, 50%)
+                -webkit-backdrop-filter: none
                 backdrop-filter: none
                 transition: all 0.2s ease-out
 
@@ -250,6 +251,7 @@ del:active
         margin-bottom: 16px
         white-space: nowrap
         background-image: linear-gradient(to right, #ffffffef,#ffffff5f)
+        -webkit-backdrop-filter: blur(3px)
         backdrop-filter: blur(3px)
         outline: 1px solid #ededed
         transition: all 0.2s ease-out

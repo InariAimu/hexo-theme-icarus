@@ -11,7 +11,7 @@ module.exports = class extends Component {
                         return  <li>
                                     <div class="link-content">
                                         <a href={f.href} title={item}>
-                                            <image class="ficon" src={f.icon} />
+                                            <image class="ficon" title={item} src={f.icon} />
                                         </a>
                                         <div class="link-title">
                                             <a target="_blank" href={f.href}> {item} </a>
